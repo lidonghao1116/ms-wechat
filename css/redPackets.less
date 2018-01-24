@@ -1,0 +1,107 @@
+@redC:#f3deb1;
+body{
+  background: #fff;
+}
+header{
+  width: 100%;
+  height:22.7rem;
+  position: relative;
+  color: @redC;
+  overflow: hidden;
+  border-bottom: none;
+  //background: -webkit-gradient(linear,0% 40%, 0% 100%, from(#D94F44), to(#F07756));
+  background: url("../img/bg_packet.png") no-repeat;
+  background-size: 100% 22.7rem;
+  .back{
+    position: absolute;
+    background: url("../img/back_wh.png") no-repeat center;
+    background-size: .8rem 1.4rem;
+    width:.8rem;
+    height: 1.4rem;
+    //top: 1.5rem;
+    //left:1.2rem;
+    padding:1.5rem 1.2rem;
+  }
+  h3{
+    text-align: center;
+    color: @redC;
+    font-size: 1.8rem;
+    margin: 1.5rem auto 3rem;
+  }
+  .totalAmount{
+    text-align: center;
+    margin-bottom:4.5rem;
+    font-weight: bold;
+    font-size: 6rem;
+    em{
+      font-size: 1.8rem;
+    }
+  }
+  .redInfo{
+    li{
+      font-size: 0;
+      display: inline-block;
+      width:50%;
+      text-align: center;
+      color: #f6d7d3;
+      .lin01{
+        font-size: 2rem;
+        margin-bottom:.9rem;
+        em{
+          font-size: 1.3rem;
+        }
+      }
+      .lin02{
+        font-size: 1.3rem;
+      }
+    }
+  }
+  #register{
+    font-size: 1.4rem;
+    color: #feeecc;
+    position: absolute;
+    right: 1.5rem;
+    top:1.5rem;
+  }
+}
+
+section{
+  .redItems{
+    li{
+      padding: 1.4rem 2rem 1.1rem;
+      border-bottom: 1px solid #f0f0f0;
+      h6{
+        font-size: 1.5rem;
+        color: #333333;
+        margin-bottom: .9rem;
+        .receivePacket{
+          float: right;
+        }
+      }
+      div{
+        font-size: 1.3rem;
+        color: #b2b2b2;
+        .title{
+          float: right;
+          text-align: right;
+        }
+      }
+    }
+  }
+  .noRedPacketInfo{
+    text-align: center;
+    margin-top:5rem;
+    dt{
+      img{
+        width: 7.9rem;
+        height: 7.9rem;
+        margin-bottom:1.6rem;
+      }
+    }
+    dd{
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      color: #b2b2b2;
+    }
+  }
+}

@@ -1,0 +1,404 @@
+
+html body{
+	color: #222;
+	font-size: 1em;
+	line-height: 1.4;
+}
+.videobigbox {
+	width: 100%;
+	max-width: 730px;
+	overflow: hidden;
+	position: fixed;
+	z-index: 99999;
+	background-color: black;
+	top:2.1rem;
+	left: 0;
+	height: 200px
+}
+
+.videobox {
+	width: 98%;
+	position: relative;
+	float: left;
+}
+
+.videobox img {
+	width: 100%;
+	max-width: 473px;
+}
+
+.infos {
+	width: 100%;
+	float: left;
+	color: #000;
+	margin-top: 0.6em;
+	line-height: 21px;
+	font-size: 0.75em;
+}
+
+.v_title {
+	color: #000;
+	font-size: 14px;
+}
+
+.v_subtitle {
+	color: #000;
+	text-transform: capitalize;
+	font-size: 14px;
+}
+
+.li_active {
+	background-color: rgb(88, 197, 173);
+	color: white;
+}
+
+.playbox {
+	max-width: 53px;
+	width: 2.2em;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	margin: -1.1em 0 0 -1.14em;
+	display: block;
+	position: absolute;
+}
+
+.playbox .playbtn {
+	display: none;
+}
+#videoplayer {
+	height: 480px;
+	width: 800px;
+	position: absolute;
+	z-index: 999999;
+	display:none;
+}
+
+#mask {
+	background:#000000;
+	filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:99;
+	display:none;
+}
+.video {
+    -webkit-user-select: none;  /* Chrome / Safari */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
+    position:relative;
+    z-index: 1;
+}
+.school_title{
+	height:90px;
+	margin: 10% auto 15% auto;
+	max-width:1000px
+}
+
+.school_logo{
+	width: 100%;
+}
+.school_logo img{
+	width:100%
+}
+
+.fen_ge {
+	height:1px;
+	width:100%;
+	background:#080C02;
+	overflow:hidden;
+}
+.top60{
+	margin-top: 60px;
+}
+.center{
+	text-align: center;
+}
+.left{
+	text-align: left;
+}
+.right{
+	text-align: right;
+}
+
+.scoresBtn{
+	margin-top: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	text-align: center;
+	.button{
+		display: inline-block;
+		height: 1.8rem!important;
+		line-height:1.8rem!important;
+		border-radius: .1rem;
+		padding: 0 1rem!important;
+	}
+}
+
+.icons-demo .circle_right {
+	width: 2.5rem;
+	height: 2.5rem;
+	margin: 0.15rem;
+	font-size: 1.2rem;
+	line-height: 2.5rem;
+	text-align: center;
+	background-color: #1B9A0A;
+	border: 1px solid #ddd;
+	border-radius: 1.25rem;
+	display: inline-block;
+}
+.icons-demo .circle_error {
+	width: 2.5rem;
+	height: 2.5rem;
+	margin: 0.15rem;
+	font-size: 1.2rem;
+	line-height: 2.5rem;
+	text-align: center;
+	background-color: #f0854b;
+	border: 1px solid #ddd;
+	border-radius: 1.25rem;
+	display: inline-block;
+}
+
+.example .circle_right {
+	width: 2.5rem;
+	height: 2.5rem;
+	margin: 0.15rem;
+	font-size: 1.2rem;
+	line-height: 2.5rem;
+	text-align: center;
+	background-color: #1B9A0A;
+	border: 1px solid #ddd;
+	border-radius: 1.25rem;
+	display: inline-block;
+}
+.example .circle_error {
+	width: 2.5rem;
+	height: 2.5rem;
+	margin: 0.15rem;
+	font-size: 1.2rem;
+	line-height: 2.5rem;
+	text-align: center;
+	background-color: #f0854b;
+	border: 1px solid #ddd;
+	border-radius: 1.25rem;
+	display: inline-block;
+}
+
+.time{
+	text-align: center;
+	margin-top: 1.5rem;
+	font-size: .85rem;
+}
+
+@media(max-width: 480px)
+{
+	.mine-background{
+		background-image: url(../img/background.png);
+		height: 150px;
+	}
+	.hx{
+		font-size: 1rem;
+		margin-top:2rem;
+		background-image: url(../img/line_btn.png);
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}
+
+.mine-background{
+	background-image: url(../img/background@2x.png);
+	height: 150px;
+}
+
+.min_play {
+	max-width: 50rem;
+	max-height: 50rem;
+	background-color: black;
+	background-image: url(../img/play-button.png);
+}
+
+.fr_line{
+	float: right;
+	margin-right: 25px;
+	margin-bottom: 20px;
+}
+
+.fl_line{
+	float: left;
+	padding-left: 20px;
+	color: #f0854b;
+	font-size: 14px;
+}
+
+.button.button-fill{
+	color: #fff;
+	background: #f0854b;
+	&:active{
+		background: #f0854b!important;
+	}
+}
+.login-account{
+	width: 1.45rem;
+	height: 1.45rem;
+	background-image: url(../img/my_btn.png);
+	background-repeat: no-repeat;
+}
+.password{
+	width: 1.45rem;
+	height: 1.45rem;
+	background-image: url(../img/password_btn.png);
+	background-repeat: no-repeat;
+}
+
+.f_line{
+	font-size: 14px;
+	text-align: center;
+}
+
+.page, .page-group{
+	background: #fff;
+}
+
+.content-block-title{
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: .7rem;
+	text-transform: uppercase;
+	line-height: 1.5;
+	color: #6d6d72;
+	margin: 1.75rem .75rem .5rem;
+	white-space: initial;
+}
+
+.hx{
+	font-size: 1rem;
+	margin-top:2rem;
+	background-image: url(../img/line_btn@2x.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.mine-logo{
+	float: left;
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+.mine-content-block {
+	color: #FFF;
+}
+
+.userName{
+	padding-top: 30px;
+	padding-left: 124px;
+}
+.userMobile{
+	padding-top: 5px;
+	padding-left: 124px;
+}
+.left-10{
+	margin-right: 10px;
+}
+.discount{
+	padding-bottom: 10px;
+	margin-left: -15px;
+}
+.o_price{
+	margin-left: 4px;
+}
+
+.toast {
+	background: rgba(0,0,0,.8);
+	border-radius: 0;
+	color: #fff;
+	padding: 0 .8rem;
+	height: 2rem;
+	line-height: 2rem;
+	font-size: .8rem;
+	width: auto;
+	z-index:9999999;
+}
+
+/***按钮***/
+.button {
+	border: 1px solid #f0854b;
+	color: #f0854b;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	border-radius: .25rem;
+	line-height: 1.25rem;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	background: 0 0;
+	padding: 0 .5rem;
+	margin: 0;
+	height: 1.35rem;
+	white-space: nowrap;
+	position: relative;
+	text-overflow: ellipsis;
+	font-size: .7rem;
+	font-family: inherit;
+	cursor: pointer;
+}
+.button.button-fill.active,
+a {
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.list-cover{
+	width: 100px;
+	height: 80px;
+}
+.go-back {
+	width: 1.1rem;
+	background: url(../img/back.png) no-repeat center;
+	background-size: 1.1rem 1.1rem;
+}
+.title {
+    z-index: -1;
+}
+.button_box a.button {
+    width: 100%;
+    background: #f0854b;
+    border-radius: .2rem;
+}
+.button_box {
+    margin-top: 20px;
+    padding: 0 1.5rem;
+}
+.score{
+	margin-top:1.6rem;
+	img{
+		width:2.8rem;
+	}
+	.scores-title{
+		color: #f0854b;
+		font-size: .8rem;
+		margin-top: .2rem;
+		text-align: center;
+	}
+	.scores-lists{
+		margin-top:1rem;
+		font-size: .8rem!important;
+		.row{
+			margin-bottom: .8rem;
+		}
+	}
+}
+.white_btn{
+	color: #f0854b;
+	background-color: #fff;
+}

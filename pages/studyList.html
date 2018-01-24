@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <!--<link rel="stylesheet" type="text/css" href="../css/jquery.mytoast.css">-->
+    <link rel="stylesheet" type="text/css" href="../css/studyList.css">
+    <title>家策微课堂</title>
+
+</head>
+
+<body>
+    <div class="page-group">
+        <div id="page-home" class="page page-current">
+            <header>
+                <a class="goBack" href="trainSchool.html"></a>
+                <h1><i></i></h1>
+            </header>
+            <div class="content">
+                <!-- <ul class="study_list_box">
+        <li class="study_list">
+          <div class="study_list_pannel">
+            <h2>高级育婴师</h2>
+            <h3>适合工种：月嫂、育婴师</h3>
+            <p>金牌月嫂、高级催乳师、高级护理员。三证合一，工作利器！</p>
+          </div>
+          <div class="price_box">
+            <div class="price"><h4>￥4880<span class="privilege">优惠</span></h4><span class="original">￥7000</span></div>
+            <span class="status daibao">立即报名</span>
+          </div>
+        </li>
+      </ul> -->
+            </div>
+        </div>
+    </div>
+    <!-- <div id="layer">
+</div>
+<div class="car-popup">
+  <h4 class="alert_tt">选择上课时间</h4>
+  <div class="signup_alert">
+    <ul class="select_list">
+      <li class="select">
+        <p>母婴护理0</p>
+        <div class="select_l">
+          <input type="radio" name="lesson" id="lianxu0" value=""><label for="lianxu0">连续班</label>
+        </div>
+        <div class="select_l">
+          <input type="radio" name="lesson" id="zhouri0" value=""><label for="zhouri0">周日班</label>
+        </div>
+      </li>
+      <li class="select">
+        <p>母婴护理1</p>
+        <div class="select_l">
+          <input type="radio" name="lesson" id="lianxu1" value=""><label for="lianxu1">连续班</label>
+        </div>
+        <div class="select_l">
+          <input type="radio" name="lesson" id="zhouri1" value=""><label for="zhouri1">周日班</label>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="select_list">
+    <p>2、本地是否交社保？</p>
+    <div class="select">
+      <div class="select_l">
+        <input type="radio" name="security" id="yes" value=""><label for="yes">是</label>
+      </div>
+      <div class="select_l">
+        <input type="radio" name="security" id="no" value=""><label for="no">否</label>
+      </div>
+    </div>
+  </div>
+  <div class="button">
+    <a class="cancel">取消</a>
+    <a class="submit">提交</a>
+  </div>
+</div> -->
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script src="/components/vendor/utils/config.js"></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+    <!--<script src="/js/jquery-3.1.1.min.js"></script>-->
+    <!--<script src="/js/jq.extend.js"></script>-->
+    <!--<script src="/js/jquery.myToast.js"></script>-->
+    <script src="/components/vendor/utils/map.js"></script>
+    <script src="/components/vendor/utils/popup.js"></script>
+    <script src="/components/vendor/utils/mapping.js"></script>
+    <script src="/components/vendor/utils/common.js"></script>
+    <script src="/components/vendor/studyList/studyList.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../components/vendor/utils/share_wachet.js"></script>
+    <script type="text/javascript">
+        var urlpath = "";
+        var imgurl = "http://" + window.location.host + "/img/logojiacer.jpg";
+        shareWechat.init_share_params = {
+            'onMenuShareTimeline.title': '家策微课堂，家庭技能服务在线课程',
+            'onMenuShareTimeline.imgUrl': imgurl,
+            'onMenuShareAppMessage.title': '家策微课堂，家庭技能服务在线课程',
+            'onMenuShareAppMessage.imgUrl': imgurl,
+            'onMenuShareAppMessage.desc': '技多不压身，工作更轻松'
+        };
+        shareWechat.sharePage(urlpath);
+    </script>
+</body>
+
+</html>

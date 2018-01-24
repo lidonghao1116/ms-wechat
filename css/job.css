@@ -1,0 +1,617 @@
+.goBackIndex {
+    display: block;
+    background: url(../img/backindex.png) no-repeat;
+    width: 2.5rem;
+    background-position: left center;
+    position: absolute;
+    left: 1.5rem;
+    top: 0;
+    color: #808080;
+    font-size: 1.2rem;
+    background-size: 1.1rem .9rem;
+    text-align: center;
+    height: 4.4rem;
+    padding-left: 1.5rem;
+    line-height: 4.4rem;
+}
+
+a.shareJob {
+    display: block;
+    background: url(../img/shareJob.png) no-repeat;
+    /*width: 4rem;*/
+    padding-top: 2.5rem;
+    background-position: center 0.7rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 0;
+    color: #ff7f3a;
+    font-size: 1rem;
+    background-size: 1.8rem 1.8rem;
+    text-align: center;
+    height: 1.6rem;
+    line-height: 1.6rem;
+}
+
+body {
+    background-color: #efeff4;
+    /* padding-top: 4.4rem; */
+    padding-bottom: 6.9rem;
+}
+
+.Service_type {
+    background-color: #fff;
+    /* margin-top: 1.2rem; */
+    padding: 1.5rem 1rem 0;
+    margin-bottom: 1.2rem;
+}
+
+.jobbanner img {
+    width: 100%;
+    height: auto;
+}
+
+.Service_type_fix {
+    margin-bottom: 6.8rem;
+}
+
+.Service_type ul {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.Service_type ul li {
+    flex: 1;
+    text-align: center;
+    height: 6.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.Service_type ul li span {
+    padding-top: 4.7rem;
+    display: inline-block;
+    width: 6rem;
+    font-size: 1.2rem;
+    color: #323232;
+}
+
+.Service_type ul li.service_list1 span {
+    background: url(../img/servicelist01.png) no-repeat;
+    background-size: 4.2rem;
+    background-position: center top;
+}
+
+.Service_type ul li.service_list2 span {
+    background: url(../img/servicelist02.png) no-repeat;
+    background-size: 4.2rem;
+    background-position: center top;
+}
+
+.Service_type ul li.service_list3 span {
+    background: url(../img/servicelist03.png) no-repeat;
+    background-size: 4.2rem;
+    background-position: center top;
+}
+
+.Service_type ul li.service_list4 span {
+    background: url(../img/servicelist04.png) no-repeat;
+    background-size: 4.2rem;
+    background-position: center top;
+}
+
+.Service_type ul li.service_list5 span {
+    background: url(../img/servicelist05.png) no-repeat;
+    background-size: 4.2rem;
+    background-position: center top;
+}
+
+.Service_type ul li.service_list6 span {
+    background: url(../img/servicelist06.png) no-repeat;
+    background-size: 4.2rem;
+    background-position: center top;
+}
+.Service_type ul li.service_list7 span {
+  background: url(../img/servicelist07.png) no-repeat;
+  background-size: 4.2rem;
+  background-position: center top;
+}
+.Service_type ul li.service_list8 span {
+  background: url(../img/servicelist08.png) no-repeat;
+  background-size: 4.2rem;
+  background-position: center top;
+}
+
+.fix_head {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.job_list_box {
+    padding: 0 1rem;
+}
+
+.job_list_box li {
+    background-color: #fff;
+    margin-top: 1.2rem;
+    padding: 1.5rem 1.2rem 0;
+    border-radius: .2rem;
+}
+
+.job_list_box li h2 {
+    font-size: 1.6rem;
+    color: #323232;
+    line-height: 1.6rem;
+}
+.job_list_box li h2 i {
+    color: #fff;
+    background-color: #ff3000;
+    border-radius: .2rem;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.5rem;
+    margin-left: 1.1rem;
+    vertical-align: top;
+}
+.job_list_box li h2 a {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 16rem;
+}
+.job_list_box li h2 span.price {
+    color: #ff9900;
+    float: right;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    margin-top: .2rem;
+    font-weight: bold;
+
+}
+.job_list_box li .demand {
+    margin-top: 2rem;
+    margin-bottom: 2.2rem;
+    max-height: 17.6rem;
+    overflow: hidden;
+}
+.demand p{
+    font-size: 1.4rem;
+    color: #333333;
+    line-height: 2.2rem;
+}
+.job_list_box li h3 {
+    line-height: 1.2rem;
+    font-size: 1.2rem;
+    color: #999999;
+    margin-top: 1.5rem;
+}
+.job_list_box li h3 span.age {
+    padding-left: 1.9rem;
+    background: url(../img/nianling.png) no-repeat;
+    background-position: left center;
+    background-size: auto 1.2rem;
+    display: inline-block;
+}
+
+.job_list_box li h3 span.location {
+    padding-left: 1.6rem;
+    background: url(../img/location.png) no-repeat;
+    background-position: left center;
+    background-size: auto 1.2rem;
+    display: inline-block;
+    margin-left: 3rem;
+}
+
+.job_list_box li p span.addTime {
+    float: right;
+    color: #808080;
+}
+
+.bottom_info {
+    margin: 0 -1.2rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #f7f7f7;
+    line-height: 2.9rem;
+    color: #999999;
+    font-size: 1.5rem;
+    -webkit-box-shadow: 0 .6rem 1rem #c2c0c0;
+    -moz-box-shadow: 0 .6rem 1rem #c2c0c0;
+    box-shadow: 0 .6rem 1rem #c2c0c0;
+    border-bottom-left-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+    border-top: 1px solid #ebebeb;
+}
+
+
+/*.bottom_info span.link {
+    width: 7.0rem;
+    height: 3.2rem;
+    background-color: #ffcc7f;
+    color: #fff;
+    font-size: 1.4rem;
+    line-height: 3.2rem;
+    padding-right: .5rem;
+    text-align: right;
+}*/
+
+.bottom_info .link {
+    padding: 0 1.3rem 0 3.8rem;
+    display: block;
+    color: #fff;
+    font-size: 1.4rem;
+    text-align: right;
+    border-radius: 1.4rem;
+    line-height: 2.8rem;
+    background: url(../img/jobphone.png) no-repeat;
+    background-position: 1.3rem center;
+    background-size: 1.5rem 1.5rem;
+    background-color: #ff9900;
+    float: right;
+    -webkit-box-shadow: 0 .2rem .4rem #de9e7b;
+    -moz-box-shadow: 0 .2rem .4rem #de9e7b;
+    box-shadow: 0 .2rem .4rem #de9e7b;
+}
+
+
+/*.link span {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 100%;
+	background:url(../img/jobphone.png) no-repeat;
+	background-position:center;
+	background-size: 1.8rem 1.8rem;
+    background-color: #ff9900;
+    position: absolute;
+    left: -2.6rem;
+    top: -.2rem;
+}*/
+
+.contact-pop {
+    display: none;
+    width: 31rem;
+    background-color: #FFFFFF;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -15.5rem;
+    margin-top: -5.9rem;
+    z-index: 110;
+    border-radius: .2rem;
+}
+
+.contact-pop .cp-content {
+    text-align: center;
+    height: 5.2rem;
+    padding: 2rem 0;
+}
+
+.contact-pop .cp-content h1 {
+    margin-bottom: 1rem;
+    color: #808080;
+}
+
+.contact-pop .cp-content p {
+    margin-bottom: 1rem;
+}
+
+.contact-pop .cp-btn {
+    height: 4.2rem;
+    display: flex;
+    display: -webkit-flex;
+    border-top: 1px solid #E6E6E6;
+}
+
+.contact-pop .cp-btn a {
+    display: block;
+    flex: 1;
+    height: 100%;
+    line-height: 4.2rem;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.contact-pop .cp-btn .cpb-cancel {
+    border-right: 1px solid #E6E6E6;
+}
+
+.contact-pop .cp-btn .cpb-call {
+    color: #FF9900;
+}
+
+#layer {
+    z-index: 101;
+}
+
+#jlb-layer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    z-index: 90;
+    -moz-opacity: 0.3;
+    opacity: .30;
+    filter: alpha(opacity=30);
+    display: none;
+}
+
+.jlb-filter_box {
+    padding-top: 1.2rem;
+    background-color: #efeff4;
+}
+
+.jlb-filter {
+    height: 4.2rem;
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+.jlb-filter_fix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.jlb-filter .sort {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.jlb-filter .sort a {
+    font-size: 1.4rem;
+    display: block;
+    flex: 1;
+    text-align: center;
+    line-height: 4.2rem;
+}
+
+.jlb-filter .sort .sortType img {
+    width: .6rem;
+    height: .3rem;
+    margin-left: .3rem;
+}
+
+.jlb-filter .sortCondition {
+    position: absolute;
+    padding: 0 2rem;
+    background-color: #FFFFFF;
+    left: 0;
+    top: 4.3rem;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+    z-index: 100;
+}
+
+.jlb-filter .sortCondition p {
+    height: 4.2rem;
+    border-bottom: 1px solid #F0F0F0;
+    line-height: 4.2rem;
+    position: relative;
+    padding-left: .4rem;
+    font-size: 1.2rem;
+}
+
+.jlb-filter .sortCondition p img {
+    position: absolute;
+    right: .4rem;
+    top: 1.8rem;
+    width: 1.4rem;
+    height: .8rem;
+    display: none;
+}
+
+
+/*地区选择*/
+
+.jlb-filter .area_sp {
+    height: 30rem;
+    padding: 0;
+}
+
+#area_sp {
+    display: flex;
+    height: 100%;
+    display: -webkit-flex;
+}
+
+#area_sp div {
+    overflow-y: auto;
+    flex: 1;
+    box-sizing: border-box;
+    display: none;
+}
+
+#area_sp .provice {
+    background-color: #fafafa;
+}
+
+#area_sp div ul {
+    width: 100%;
+}
+
+#area_sp div ul li {
+    height: 4.2rem;
+    line-height: 4.2rem;
+    font-size: 1.2rem;
+}
+
+#area_sp .provice ul li {
+    padding-left: 1.5rem;
+    border-bottom: 1px solid #fafafa;
+}
+
+#area_sp div ul .area-on {
+    color: #FF9900;
+    background-color: #fff;
+}
+
+#area_sp .city {
+    background-color: #fff;
+    padding: 0 1.5rem 0 1rem;
+}
+
+#area_sp .city ul li {
+    border-bottom: 1px solid #F0F0F0;
+}
+
+
+/*薪资*/
+
+.price_content_box div {
+    display: none;
+}
+
+.price_content_box div:first-child {
+    display: block;
+}
+
+.price_tab {
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.price_tab ul {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.price_tab ul li {
+    flex: 1;
+    text-align: center;
+    height: 4rem;
+    line-height: 4rem;
+    color: #343434;
+    font-size: 1.4rem;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+
+.price_tab ul li.active {
+    border-bottom: 3px solid #ff7f3a;
+    margin-bottom: -2px;
+}
+
+
+/*更多*/
+
+.more_list {
+    color: #343434;
+}
+
+.more_list h1 {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    padding: 1.5rem 0;
+}
+
+.more_list ul {
+    overflow: hidden;
+    margin-right: -2rem;
+}
+
+.more_list ul li {
+    float: left;
+    line-height: 3.5rem;
+    padding: 0 .9rem;
+    font-size: 1.2rem;
+    border: 1px solid #b3b3b3;
+    border-radius: .2rem;
+    margin-right: 1.5rem;
+    margin-bottom: .9rem;
+}
+
+.more_list ul li.mf-on {
+    color: #ff7f3a;
+    border-color: #ff7f3a;
+}
+
+#more {
+    height: 20rem;
+}
+
+.button_box {
+    border-top: 1px solid #f0f0f0;
+    padding: 1.5rem 0;
+    overflow: hidden;
+    display: flex;
+    display: -webkit-flex;
+    margin-top: 1.5rem;
+}
+
+.button_box div {
+    flex: 1;
+    text-align: center;
+    padding: 0 2.3rem;
+}
+
+.button_box a {
+    border: 1px solid #dddddd;
+    border-radius: .2rem;
+    display: block;
+    height: 3.5rem;
+    line-height: 3.5rem;
+}
+
+.button_box a.confirm {
+    border: 1px solid #ff7f3a;
+    color: #ff7f3a;
+}
+
+
+/*分享*/
+
+.share_l {
+    display: none;
+    z-index: 102;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 1rem;
+    text-align: center;
+}
+
+.share_l p {
+    overflow: hidden;
+}
+
+img.shareicon {
+    float: right;
+    margin-right: 1rem;
+    top: 0;
+    width: 6.1rem;
+}
+
+img.shareinfo {
+    margin-top: 5.7rem;
+    width: 78%;
+}
+
+.no_found {
+    padding-top: 21rem;
+    text-align: center;
+    background: url(../img/wushuju.png) no-repeat;
+    background-size: 14rem 11rem;
+    background-position: center 7rem;
+}
+
+.no_found p {
+    line-height: 2rem;
+    font-size: 1.2rem;
+    color: #6b6b6b;
+}
+
+footer .job {
+    background-image: url(../img/job2.png);
+    background-size: auto 2.2rem;
+    background-position: center 0.2rem;
+    color: #FF7F3A;
+}

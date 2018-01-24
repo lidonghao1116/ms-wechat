@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" type="text/css" href="../css/global.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/schoolShare.css"/>
+  <link rel="stylesheet" href="/css/jquery.mytoast.css">
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script src="../js/jquery.myToast.js"></script>
+  <script src="/js/jq.extend.js"></script>
+  <script src="../components/vendor/utils/config.js"></script>
+  <script src="../components/vendor/utils/map.js"></script>
+  <script src="../components/vendor/utils/mapping.js"></script>
+  <script src="../components/vendor/utils/common.js"></script>
+  <script src="//qzonestyle.gtimg.cn/open/qcloud/video/h5/h5connect.js" charset="utf-8"></script>
+  <title>家策微课堂</title>
+</head>
+
+<body>
+<!--红包分享-->
+<input type="hidden" id="wechatID" name="" value="">
+<input type="hidden" id="courseSummary" name="" value="">
+<div class="shareRedPacket-pop">
+  <p class="shareArrow">立即分享</p>
+  <img src="/img/redPacketPic.png"/>
+  <div class="activityRules">
+    <h1>活动规则</h1>
+    <ul>
+      <li>示例1：A用户将【c课程】分享给好友，用户B通过A的链接进入到家策微课堂，并成功购买A分享的【c课程】，则A获得邀请奖励（微信现金红包，奖励金额为课程价格的8%，但最多不超过9.9元。）</li>
+      <li>示例2：倘若用户B通过用户A的链接进入到家策微课堂，但并非购买A分享的【c课程】，而是购买了【d课程】，则A无法享受邀请奖励。</li>
+      <li>不能使用自己的邀请码购买</li>
+      <li>本次活动最终解释权归上海家策教育科技有限公司所有</li>
+    </ul>
+  </div>
+</div>
+<header>
+  <a class="goBack" href="home.html"></a>
+  <h1 id="courseName"></h1>
+  <a class="shareRedPacket">邀请<br/>红包</a>
+</header>
+<div class="courseImg">
+  <img src=""/>
+</div>
+<div class="courseVideo" id="courseVideo">
+
+</div>
+<div class="cd-tab">
+  <a class="cdt_on">操作视频</a>
+  <a class="exerciseAnswer">答题练习</a>
+  <a>学习记录</a>
+</div>
+
+<!--操作视频-->
+<div class="courseContent" id="videoList">
+  <ul class="vl-district">
+    <li>
+      <h1></h1>
+      <ul class="vl-subdivision spli1">
+
+      </ul>
+    </li>
+    <li>
+      <h1></h1>
+      <ul class="vl-subdivision spli2"></ul>
+    </li>
+    <li>
+      <h1></h1>
+      <ul class="vl-subdivision spli3">
+
+      </ul>
+    </li>
+    <li>
+      <h1></h1>
+      <ul class="vl-subdivision spli4">
+
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!--模拟答题-->
+<div class="courseContent" id="examination">
+  <div class="exercise">
+    <div class="exerciseInfo">
+      <div style="overflow: hidden">
+        <h4>小练习</h4>
+        <div class="startExer">进入</div>
+      </div>
+      <p>随时开启，灵活练习，答疑解惑</p>
+    </div>
+  </div>
+  <div class="examinationCard">
+    <div class="examInfo">
+      <!-- <h1>答题时间：90分钟</h1>
+  <p>判断题：0.5分/题，60题</p>
+  <p>单选题：1分/题，50题</p>
+  <p>多选题：2分/题，10题</p>-->
+    </div>
+  </div>
+</div>
+
+<!--学习记录-->
+<div class="courseContent" id="learningRecords">
+  <ul>
+    <li class="title">
+      <span class="date">时间</span>
+      <span class="score">分数</span>
+      <span class="time">用时</span>
+    </li>
+  </ul>
+</div>
+<!--<div class="courseFoot">
+<div class="cf-btn clearfix">
+    <a class="cfb-left">分享好友赢红包</a>
+    <a class="cfb-right" id="buy">购买：￥<span id="price"></span>/永久</a>
+</div>
+</div>-->
+<!--遮罩层-->
+<div class="mask">
+        <span class="popup" id="orderCourse">
+        <span id="close"></span>
+        <div class="popupText">
+            <h3>您将购买本课程的内容</h3>
+            <p>购买后不支持退订、转让，请再次确认</p>
+            <div class="codeBox">
+                <label for="invitationCode">邀请码:</label>
+                <input type="text" placeholder="(非必填)" id="invitationCode">
+            </div>
+        </div>
+        <div class="button">
+            <button id="cancel">取消</button><button id="confirm">确定</button>
+        </div>
+</div>
+<div class="courseFoot">
+  <div class="cf-btn clearfix">
+    <a class="cfb-left">邀请好友赢红包</a>
+    <a class="cfb-right" id="buy">购买：￥<span id="price"></span>/永久</a>
+  </div>
+</div>
+<input id="imgurl" type="hidden" value="">
+<input id="courseType" type="hidden" value="">
+</body>
+<script src="/components/vendor/courses/courses.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="/components/vendor/utils/share_wachet.js"></script>
+<script type="text/javascript">
+  /* var urlpath = "";
+   var invCode = localStorage.getItem('invite-code');
+   var imgurl = "http://" + window.location.host + "/img/logojiacer.jpg";
+   shareWechat.init_share_params = {
+   'onMenuShareTimeline.title': '家策微课堂，家庭技能服务在线课程',
+   'onMenuShareTimeline.imgUrl': imgurl,
+   'onMenuShareAppMessage.title': '家策微课堂，家庭技能服务在线课程',
+   'onMenuShareAppMessage.imgUrl': imgurl,
+   'onMenuShareAppMessage.desc': '我的邀请码:'+invCode
+   };
+   shareWechat.sharePage(urlpath);*/
+</script>
+</html>

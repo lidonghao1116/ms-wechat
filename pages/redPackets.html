@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/global.css">
+  <link rel="stylesheet" type="text/css" href="../css/jquery.toast.css">
+  <link rel="stylesheet" type="text/css" href="../css/redPackets.css">
+  <title>家策微课堂</title>
+</head>
+<body>
+<!--头部-->
+<header>
+  <a class="back" href="mine.html"></a>
+  <h3 id="nickName"><span></span>共收到</h3>
+  <!--<a href="register.html" id="register">登陆</a>-->
+  <p class="totalAmount"><span></span><em>元</em></p>
+  <ul class="redInfo">
+    <li>
+      <div class="lin01"><span class="totalNum"></span><em>&nbsp;个</em></div>
+      <div class="lin02">收到红包</div>
+    </li>
+    <li>
+      <div class="lin01" id="invCode"></div>
+      <div class="lin02">我的邀请码</div>
+    </li>
+  </ul>
+</header>
+<!--内容-->
+<section>
+  <ul class="redItems">
+    <!-- <li>
+       <h6>
+         <span class="name">伊恩(Ian)</span>
+         <span class="receivePacket">5.90元</span>
+       </h6>
+       <div>
+         <span class="time">今天</span>
+         <span class="title">母婴护理员【上岗】</span>
+       </div>
+     </li>
+     <li>
+       <h6>
+         <span class="name">伊恩(Ian)</span>
+         <span class="receivePacket">5.90元</span>
+       </h6>
+       <div>
+         <span class="time">今天</span>
+         <span class="title">母婴护理员【上岗】</span>
+       </div>
+     </li>
+     <li>
+       <h6>
+         <span class="name">伊恩(Ian)</span>
+         <span class="receivePacket">5.90元</span>
+       </h6>
+       <div>
+         <span class="time">今天</span>
+         <span class="title">母婴护理员【上岗】</span>
+       </div>
+     </li>
+     <li>
+       <h6>
+         <span class="name">伊恩(Ian)</span>
+         <span class="receivePacket">5.90元</span>
+       </h6>
+       <div>
+         <span class="time">今天</span>
+         <span class="title">母婴护理员【上岗】</span>
+       </div>
+     </li>
+     <li>
+       <h6>
+         <span class="name">伊恩(Ian)</span>
+         <span class="receivePacket">5.90元</span>
+       </h6>
+       <div>
+         <span class="time">今天</span>
+         <span class="title">母婴护理员【上岗】</span>
+       </div>
+     </li>-->
+  </ul>
+  <!-- <dl class="noRedPacketInfo">
+     <dt><img src="../img/noredPacket.png" alt=""></dt>
+     <dd>您还没有收到红包</dd>
+     <dd>赶快去邀请好友开始在线课程吧～</dd>
+   </dl>-->
+</section>
+<!--<img src="../img/redPacketPic.png" alt="" style="display: ">-->
+</body>
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/jquery.myToast.js"></script>
+<script src="/js/jq.extend.js"></script>
+<script src="/components/vendor/utils/map.js"></script>
+<script src="/components/vendor/utils/mapping.js"></script>
+<script src="/components/vendor/utils/common.js"></script>
+<!--<script src="/components/vendor/mine/redPackets.js"></script>-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="/components/vendor/utils/share_wachet.js"></script>
+<script type="text/javascript">
+  /**
+   * Created by hasee on 2017/8/21.
+   */
+  /*保存本地临时数据*/
+  function saveStorage(key, value) {
+    sessionStorage.setItem(key, value);
+    /*临时保存*/
+  }
+
+  var params = {
+    wx_openid: localStorage.getItem('wx-openid'),
+    isLogin: sessionStorage.getItem('isLogin')
+  }
+  function wechatInfo() {
+    $.ajax({
+      url: window.global_config.wechat,
+      type: "get",
+      dataType: "json",
+      headers: {
+        'wx-openid': params.wx_openid,
+      },
+      success: function success(data) {
+        if (data.code == 0) {
+          var src = data.jsonData;
+//          obj.avator = src.headImgUrl;
+          var nick = src.nick;
+          $("#nickName span").html(nick);
+          nick = filterNick($("#nickName span").text());
+          $("#nickName span").html(nick);
+          $("#register").remove();
+          var html = '<a href="register.html" id="register">登录</a>'
+          $("#nickName").after(html);
+        } else {
+          checkAuth(data.code);
+          $.toast(data.msg);
+        }
+      },
+      error: function (err) {
+        console.log(err);
+      }
+    });
+  }
+  function userInfo() {
+    var that = this;
+    $.ajax({
+      url: window.global_config.userInfo,
+      type: "get",
+      dataType: "json",
+      async: false,
+      headers: {
+        'wx-openid': params.wx_openid,
+      },
+      success: function success(data) {
+        if (data.code == 0) {
+          saveStorage('isLogin', 1);
+          console.log(data);
+          responseUserInfo(data.jsonData);
+        } else if (data.code == 20004) {
+          saveStorage('isLogin', 0);
+          var isLogin = 0;
+          noRedInfo(isLogin);
+        } else {
+          checkAuth(data.code);
+          $.toast(data.msg);
+        }
+      },
+      error: function (err) {
+        console.log(err);
+      }
+    });
+  }
+  function initRedPacket() {
+    $.ajax({
+      url: window.global_config.redPacketInfo,
+      type: "get",
+      dataType: "json",
+      async: false,
+      headers: {
+        'wx-openid': params.wx_openid,
+      },
+      success: function success(data) {
+        if (data.code == 0) {
+          console.log(data);
+          var amount = data.jsonData.amount;
+          console.log(amount);
+          amount = filterAmount(amount)
+          $(".totalAmount span").html(amount)
+        } else if (data.code == 20004) {
+          $(".totalAmount span").html("0.00")
+        } else {
+          checkAuth(data.code);
+          $.toast(data.msg);
+        }
+      },
+      error: function (err) {
+        console.log(err);
+      }
+    });
+    var totalAmount = $(".totalAmount span").text();
+    sessionStorage.setItem("totalAmount", totalAmount);
+  }
+
+  function initRedPacketInfo() {
+    var that = this;
+    $.ajax({
+      url: window.global_config.redPacketList,
+      type: "get",
+      dataType: "json",
+      headers: {
+        'wx-openid': params.wx_openid,
+      },
+      success: function success(data) {
+        if (data.code == 0) {
+          console.log(data);
+          if (data.jsonData.length == 0) {
+            noRedInfo();
+          } else {
+            responseRedInfo(data.jsonData, data.totalData);
+          }
+        }  else {
+          checkAuth(data.code);
+          $.toast(data.msg);
+        }
+      },
+      error: function (err) {
+        console.log(err);
+      }
+    });
+  }
+
+  function responseUserInfo(data) {
+     $("#nickName span").html(data.nickname);
+    var nick = filterNick($("#nickName span").text());
+    $("#nickName span").html(nick)
+    $("#invCode").html(data.inviteCode)
+  }
+  function responseRedInfo(data, totalNum) {
+    var that = this;
+    // console.log(data)
+    $(".totalNum").html(totalNum);
+
+    var html = '';
+    $.each(data, function (index, data) {
+      var userName = filterNick(data.userName);
+      console.log(index, data)
+      var amount = filterAmount(data.amount);
+      console.log(amount)
+      html += `
+       <li>
+      <h6>
+        <span class="name">${userName}</span>
+        <span class="receivePacket">${amount}元</span>
+      </h6>
+      <div>
+        <span class="time">${data.dateView}</span>
+        <span class="title">${data.courseName}</span>
+      </div>
+    </li>
+`
+    })
+
+    $(".redItems").html(html);
+  }
+  //  无红包
+  function noRedInfo(isLogin) {
+    $(".totalNum").text("0");
+    var html = `
+   <dl class="noRedPacketInfo">
+    <dt><img src="../img/noredPacket.png" alt=""></dt>
+    <dd>您还没有收到红包</dd>
+    <dd>赶快去邀请好友开始在线课程吧～</dd>
+  </dl>
+`
+    $('section').html(html)
+    if (isLogin == 0) {
+      $("#invCode").html("尚未登录");
+      wechatInfo();
+    }
+  }
+  //  筛选
+  function filterNick(nick) {
+    var i = nick.length;
+    console.log(nick)
+    console.log(i);
+    if (i > 8) {
+      nick = nick.slice(0, 8) + "...";
+    }
+    return nick;
+  }
+
+
+  $(function () {
+    userInfo();
+    initRedPacket();
+    initRedPacketInfo();
+    var totalAmount = sessionStorage.getItem("totalAmount");
+    var urlpath = "";
+    var imgurl = "http://wx.jiacedu.com/img/redPacketPic.png";
+    shareWechat.init_share_params = {
+      'onMenuShareTimeline.title': '不是炫耀哦！我已经收到' + totalAmount + '元现金红包啦~',
+      'onMenuShareTimeline.imgUrl': "http://wx.jiacedu.com/img/redPacketPic.png",
+      'onMenuShareAppMessage.title': '不是炫耀哦！我已经收到' + totalAmount + '元现金奖励啦~',
+      'onMenuShareAppMessage.imgUrl': "http://wx.jiacedu.com/img/redPacketPic.png",
+      'onMenuShareAppMessage.desc': '动动手指，到家策微课堂一起来领福利吧'
+    };
+    shareWechat.sharePage(urlpath);
+  })
+  function filterAmount(amount) {
+    if (isEmpty(amount) || amount == 0) {
+      amount = "0.00";
+    } else {
+      if (amount.toString().indexOf(".") != -1) {
+        var l = amount.toString().split(".")[1].length;
+        if (l == 1) {
+          amount += "0";
+        }
+      } else {
+        amount += ".00";
+      }
+    }
+    return amount;
+  }
+</script>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">-->
+  <link rel="stylesheet" type="text/css" href="/css/global.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>家策微课堂</title>
+  <style>
+    body {
+      background: #ffffff;
+    }
+
+    header {
+      background: #f7f7f8!important;
+    }
+    h1{
+      background: #f7f7f8!important;
+    }
+    .tips {
+      background: url("/img/tips.png") no-repeat center center;
+      background-size: 5.95rem 8.95rem;
+      width: 100%;
+      height: 8.95rem;
+      margin: 5rem auto 3rem;
+    }
+
+    .tipTxt {
+      color: #333333;
+      font-size: 1.7rem;
+      text-align: center;
+      line-height: 2.7rem;
+    }
+
+    .tipSm {
+      font-size: 1.5rem;
+      color: #808080;
+      text-align: center;
+      margin: 3.5rem auto 4.5rem;
+    }
+    .btn{
+      display: block;
+      height:4.4rem;
+      margin: 1.5rem;
+      text-align: center;
+      line-height:4.4rem;
+      border-radius: .4rem;
+      font-size: 1.8rem;
+    }
+    .beginBtn{
+      background: #f0854b;
+      color: #ffffff;
+    }
+    .returnBack{
+      background: #fbfafc;
+      color: #333;
+      border: .05rem solid #d6d5d6;
+      margin-bottom: 0;
+    }
+    .beginBtn:link{
+      color:#ffffff;
+    }
+    .beginBtn:visited{
+      color:#ffffff;
+    }
+    .beginBtn:active{
+      color:#ffffff;
+    }
+  </style>
+</head>
+
+<body>
+<header class="bar bar-nav">
+  <a class="goBack" href="javascript:history.go(-1)"></a>
+  <h1 class="title"></h1>
+</header>
+<section>
+  <div class="tips"></div>
+  <p class="tipTxt">模拟考试，必须在90分钟完成 </p>
+  <p class="tipTxt">答题并交卷，中途不得暂停。</p>
+  <p class="tipSm">准备好了吗？加油咯！</p>
+  <div class="btnBox">
+    <a class="beginBtn btn">开始答题</a>
+    <a class="returnBack btn" href="javascript:history.go(-1)">返回上页</a>
+  </div>
+</section>
+
+</body>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<!--<script src="/components/vendor/utils/config.js"></script>-->
+<!--<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>-->
+<script src="/components/vendor/utils/map.js"></script>
+<script src="/components/vendor/utils/mapping.js"></script>
+<script src="/components/vendor/utils/common.js"></script>
+<!--<script src="/components/vendor/question/questions.js"></script>-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="/components/vendor/utils/share_wachet.js"></script>
+<script type="text/javascript">
+  var urlpath = "";
+  var imgurl = "http://" + window.location.host + "/img/logojiacer.jpg";
+  shareWechat.init_share_params = {
+    'onMenuShareTimeline.title': '家策微课堂，家庭技能服务在线课程',
+    'onMenuShareTimeline.imgUrl': imgurl,
+    'onMenuShareAppMessage.title': '家策微课堂，家庭技能服务在线课程',
+    'onMenuShareAppMessage.imgUrl': imgurl,
+    'onMenuShareAppMessage.desc': '技多不压身，工作更轻松'
+  };
+  shareWechat.sharePage(urlpath);
+  var courseId = location.href.split('?')[1].split('&')[0].split('=')[1];
+  var courseName = decodeURI(location.href.split('?')[1].split('&')[1].split('=')[1]);
+  $('.beginBtn').click(function () {
+      window.location.href = '/pages/questions.html?courseId=' + courseId + '&' + 'courseName=' + courseName;
+  })
+  $(".title").text(courseName);
+  console.log(courseId);
+  sessionStorage.setItem('courseName', courseName);
+</script>
+</html>

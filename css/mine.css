@@ -1,0 +1,254 @@
+/*我的*/
+footer .mine {
+  background-image: url(../img/mine2.png);
+  background-size: 2.1rem 2.2rem;
+  color: #ff7f3a;
+}
+.top_link {
+  padding: 2.6rem 0;
+  background: linear-gradient(to right, #ff8447, #ff9f46);
+  text-align: center;
+  position: relative;
+}
+.top_link a.push {
+  position: absolute;
+  color: #fff;
+  right: 0;
+  top: 0;
+  font-size: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 2.3rem;
+  padding-right: 1.5rem;
+  background: url(../../img/xiaoxi.png) no-repeat;
+  background-position: left center;
+  background-size: 1.5rem;
+}
+.top_link p img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+}
+.top_link p span {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-top: 1.6rem;
+  display: block;
+}
+.mine_list {
+  padding: 0 1rem;
+  background-color: #fff;
+}
+.mine_list a {
+  padding-right: .5rem;
+  display: block;
+  border-bottom: 1px solid #f0f0f0;
+}
+.mine_list a p {
+  padding: 1.5rem 0;
+  line-height: 1.9rem;
+  font-size: 1.5rem;
+  color: #333333;
+  background: url(../img/righticon.png) no-repeat;
+  background-position: right center;
+  background-size: .8rem 1.4rem;
+}
+.mine_list a.border_n {
+  border: 0;
+}
+.mine_list p span {
+  width: 3.7rem;
+  text-align: center;
+  display: inline-block;
+  margin-right: .5rem;
+  vertical-align: text-bottom;
+}
+.mine_list p span img {
+  width: 1.7rem;
+  vertical-align: top;
+}
+.mine_list p span img.record {
+  width: 2rem;
+}
+.last_list {
+  margin-top: 1.2rem;
+}
+/*学员信息完善*/
+.info_banner img {
+  width: 100%;
+  height: auto;
+}
+.info_enter {
+  padding: 0 1.5rem;
+  background-color: #fff;
+}
+.info_enter h1 {
+  padding: 2rem 0;
+  line-height: 2rem;
+  color: #333333;
+  font-size: 1.6rem;
+  border-bottom: 1px solid #dbdbdb;
+}
+.info_list label {
+  flex: 0 0 auto;
+  display: block;
+  float: left;
+  font-size: 1.5rem;
+  color: #808080;
+  margin-left: .5rem;
+}
+.info_list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 1.5rem 0;
+  line-height: 1.9rem;
+}
+#degree {
+  border-bottom: 0;
+}
+.info_list input {
+  font-size: 1.5rem;
+  line-height: 1.9rem;
+  border: none;
+  -webkit-appearance: none;
+  width: 100%;
+}
+.info_list p {
+  display: inline-block;
+  width: 100%;
+  /*margin-left: 6.8rem;*/
+}
+.info_list p.selCertificate {
+  display: inline-block;
+  padding-right: .8rem;
+}
+.info_list p.selCertificate input {
+  background: url(../img/righticon.png) no-repeat;
+  background-position: right center;
+  background-size: .8rem 1.4rem;
+}
+.savebtn {
+  padding: 0 1.5rem;
+  margin-top: 4.9rem;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+.savebtn input {
+  width: 100%;
+  border: 1px solid #ff7f3a;
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: #ff7f3a;
+  border-radius: .3rem;
+  height: 4.1rem;
+  appearance: none;
+  -moz-appearance: button;
+  /* Firefox */
+  -webkit-appearance: button;
+  /* Safari 和 Chrome */
+}
+/*我的证书*/
+h3.certificate_tt {
+  height: 3.5rem;
+  padding-left: 2rem;
+  line-height: 3.5rem;
+  color: #ff7f3a;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.certificate_tt i {
+  display: inline-block;
+  font-size: inherit;
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: #ff9900;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+.moreCert {
+  position: absolute;
+  right: 1.5rem;
+  top: 0;
+  display: block;
+  height: 100%;
+  line-height: 4.4rem;
+  font-size: 1.4rem;
+  color: #ff7f3a;
+}
+.certificate {
+  background-color: #fff;
+  margin-top: 1.2rem;
+  padding: 1.2rem 0;
+}
+.certificate:last-child {
+  margin-bottom: 2rem;
+}
+.result_t {
+  width: 100%;
+  margin-top: 1.3rem;
+}
+.result_t tr td {
+  color: #3d3d3d;
+  font-size: 1.4rem;
+  padding: 0.6rem 0;
+  width: 26%;
+  vertical-align: top;
+  line-height: 1.9rem;
+}
+.result_t tr td.grey {
+  text-align: right;
+  color: #808080;
+}
+::-webkit-input-placeholder {
+  color: #dbdbdb;
+}
+::-moz-placeholder {
+  color: #dbdbdb;
+}
+:-ms-input-placeholder {
+  color: #dbdbdb;
+}
+.layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: none;
+}
+.layer .popup {
+  position: fixed;
+  bottom: 0;
+  height: 21rem;
+  background: #ffffff;
+  padding: 0 1.6rem 0 1.6rem;
+  color: #333333;
+}
+.layer .popup h4 {
+  font-size: 1.4rem;
+  margin: 1.8rem 0;
+}
+.layer .popup .education {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.layer .popup .education div {
+  display: inline-block;
+  width: 7.5rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
+  border: .05rem solid #b2b2b2;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: .15rem;
+  margin-bottom: 1.2rem;
+}
+.amount {
+  color: #b2b2b2;
+  float: right;
+  margin-top: 1px;
+  margin-right: 1.7rem;
+}

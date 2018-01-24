@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" type="text/css" href="../css/global.css">
+  <link rel="stylesheet" type="text/css" href="../css/jquery.toast.css">
+  <link rel="stylesheet" type="text/css" href="../css/jquery.mytoast.css">
+  <link rel="stylesheet" type="text/css" href="../css/pushMessage.css">
+  <title>家策微课堂</title>
+</head>
+
+<body>
+  <div id="layer"></div>
+  <div id="selDistrict" class="popup">
+    <h1>
+      选择服务区域
+      <a class="closeBtn"></a>
+    </h1>
+    <div class="addrPannel">
+      <div class="provice">
+        <ul>
+          <!-- <li data-code="19"> 广东 </li>
+          <li data-code="19"> 广东 </li>
+          <li data-code="19"> 广东 </li>
+          <li data-code="19"> 广东 </li> -->
+        </ul>
+      </div>
+      <div class="city">
+        <ul>
+          <!-- <li data-code=""> 荆门市 </li>
+          <li data-code=""> 荆门市 </li>
+          <li data-code=""> 荆门市 </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <header>
+    <a class="goBack" href="/pages/mine.html"></a>
+    <h1>提醒设置</h1>
+  </header>
+  <h1 class="bar">根据自身需求设置工作机会提醒</h1>
+  <h2 class="bar on_off">微信公众号提醒
+      <label class="right">
+        <input type="checkbox" name="switch" class="mui-switch mui-switch-animbg">
+      </label>
+  </h2>
+  <div class="serviceFrame service_item">
+    <h2>关注工种</h2> 
+    <ul class="pushService"><li data-code="01" class="skillBox">月嫂
+        <!-- <input type="checkbox" name="salarySkills" class="skillInput" value="01"></li><li data-code="02" class="skillBox active">育儿嫂
+        <input type="checkbox" name="salarySkills" class="skillInput" value="02"></li><li data-code="03" class="skillBox">保姆
+        <input type="checkbox" name="salarySkills" class="skillInput" value="03"></li><li data-code="04" class="skillBox">老人陪护
+        <input type="checkbox" name="salarySkills" class="skillInput" value="04"></li><li data-code="05" class="skillBox">钟点工
+        <input type="checkbox" name="salarySkills" class="skillInput" value="05"></li><li data-code="06" class="skillBox">家庭管家
+        <input type="checkbox" name="salarySkills" class="skillInput" value="06"></li><li data-code="07" class="skillBox">医院护工
+        <input type="checkbox" name="salarySkills" class="skillInput" value="07"></li> -->
+    </ul>
+  </div>
+  <div class="serviceFrame service_add clearfix">
+    <h2>服务区域<span class="tip ml20">可最多指定3个区域</span></h2> 
+    <div>
+      <div class="selWrapper">
+        <div class="selBar">
+          全部区域
+          <input type="radio" value="1" id="rdo1" name="selAddr" class="rdoDot">
+          <div class="check right">
+              <label></label>
+          </div>
+        </div>
+      </div> 
+      <div id="selAreaBar" class="selWrapper">
+        <div class="selBar">
+          指定区域
+          <input type="radio" id="rdo0" value="0" name="selAddr" class="rdoDot">
+          <div class="check right">
+            <label></label>
+          </div>
+        </div> 
+        <div class="rel">
+          <ul class="showAddr">
+            <!-- <li data-pcode="17" data-ccode="1475" class="rd1">
+                湖北-鄂州市<em class="del"></em>
+            </li> -->
+          </ul> 
+          <button class="btnAdd">添加区域</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btnctrl">
+    <a href="/pages/mine.html" class="btn-white btn-bottom">取消</a>
+    <button class="btn-fill btn-bottom"> 保存 </button>
+  </div>
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/jquery.myToast.js"></script>
+<script src="/components/vendor/utils/mapping.js"></script>
+<script src="/components/vendor/utils/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="../components/vendor/utils/share_wachet.js"></script>
+<script type="text/javascript">
+  
+
+  $(function(){
+    var params = {
+    wx_openid: localStorage.getItem('wx-openid'),
+    // wx_openid: "oC1aRuCuXO6eUPYeSnFDcMe7hj5o",
+    invite_code: localStorage.getItem('invite-code'),
+    isLogin: sessionStorage.getItem('isLogin')
+  }
+    getServicesType();
+    $.ajax({
+        url: window.global_config.subscribe,
+        type: "get",
+        headers: {
+        'wx-openid': params.wx_openid,
+      },
+        dataType: "json",
+        data:{
+        },
+        // async: false,
+        success: function success(data) {
+          if (data.success) {
+            var dataJD = data.jsonData;
+            var dataJDS = dataJD.services;
+            var dataJDAd = dataJD.addressInfos;
+            if(dataJD.isOn==0){
+              $(".serviceFrame").hide();
+            }else if(dataJD.isOn==1){
+               $(".serviceFrame").show();
+               $("input[name='switch']").attr("checked","checked");
+            }
+            if(dataJDS!=null && dataJDS!=""){
+              $.each(dataJDS,function(i,item){
+                $(".pushService li input[name='salarySkills']").each(function(){
+                  if($(this).val()==item){
+                    $(this).trigger("click");
+                  }
+                })
+              })
+            }
+            if(dataJDAd!=null && dataJDAd!="" && dataJDAd[0].province!=0){
+              $("#rdo0").trigger("click");
+              if(dataJDAd.length>2){
+                $(".btnAdd").hide();
+              }else{
+                $(".btnAdd").show();
+              }
+              var html="";
+              $.each(dataJDAd,function(i,item){
+               html += "<li data-pcode='"+item.province+"' data-ccode='"+item.city+"' class='rd1'> "+item.provinceValue+"-"+item.cityValue+"<em class='del'></em> </li>";
+              });
+              $(".showAddr").html(html);
+            }else{
+              $("#rdo1").trigger("click");
+              $(".btnAdd").show();
+            }
+
+          } else {
+            if(data.code==999010){
+              $.toast("该功能需要绑定，请先绑定！");
+              timedMsg(4000, '/pages/register.html')
+            }
+            checkAuth(data.code);
+          }
+        }
+      });
+    // 服务区域选择
+    $("input[name='selAddr']").click(function(){
+      $(this).siblings(".check").addClass("active");
+      $(this).parents(".selWrapper").siblings(".selWrapper").find(".check").removeClass("active");
+      if($(this).val()=="1"){
+        $(".rel").hide();
+        $(".showAddr").html("");
+      }else if($(this).val()=="0"){
+        $(".rel").show();
+      }
+    });
+    // 工种选择
+    $(".service_item ul").on("click","input[type='checkbox']",function(){
+      if($(this).is(":checked")){
+        $(this).parent("li").addClass("active");
+      }else{
+        $(this).parent("li").removeClass("active");
+      }
+    });
+    // 关闭服务区域选择
+    $("#layer,.closeBtn").click(function(){
+      $("#layer").hide();
+      $("#selDistrict").animate({"bottom":"-42rem"});
+    });
+    $("#selAreaBar").on("click",".btnAdd",function(){
+      serviceProvice();
+      $("#layer").show();
+      $("#selDistrict").animate({"bottom":0});
+		  $("#selDistrict .provice").show().siblings().hide();
+    });
+    // 选择省市
+    $("#selDistrict").on("click","li",function(){
+        $(this).addClass("area-on").siblings().removeClass("area-on");
+        var pcode=$(this).data("code")
+        if ($(this).parents("div").hasClass("provice")){
+          serviceCity(pcode);
+          $("#selDistrict .city").show();
+        } else if ($(this).parents("div").hasClass("city")) {
+          var pcode = $("#selDistrict .provice .area-on").data("code");
+          var ccode = $("#selDistrict .city .area-on").data("code");
+          var pcodeValue = $("#selDistrict .provice .area-on").text();
+          var ccodeValue = $("#selDistrict .city .area-on").text();
+          var html = "<li data-pcode='"+pcode+"' data-ccode='"+ccode+"' class='rd1'> "+pcodeValue+"-"+ccodeValue+"<em class='del'></em> </li>";
+          $(".showAddr").append(html);
+          $("#layer").hide();
+          $("#selDistrict").animate({"bottom":"-42rem"});
+          if($(".showAddr li").length>2){
+            $(".btnAdd").hide();
+          }else{
+            $(".btnAdd").show();
+          }
+        } 
+
+      });
+      // 删除服务区域
+      $("#selAreaBar").on("click",".del",function(){
+        $(this).parent("li").remove();
+        if($(".showAddr li").length>2){
+          $(".btnAdd").hide();
+        }else{
+          $(".btnAdd").show();
+        }
+      });
+      // 开关
+      $("input[name='switch']").click(function(){
+        if ($(this).is(":checked")) {
+          $(".serviceFrame").show();
+        }else{
+          $("input[name='salarySkills']").each(function () {
+            $(this).prop("checked", false);
+            $(this).parent('.skillBox').removeClass('active');
+          })
+          $("#rdo1").trigger("click");
+          $(".serviceFrame").hide();
+        }
+      });
+      // 保存
+      $(".btn-fill").click(function(){
+        if ($("input[name='selAddr']:checked").val()=="0" && $(".showAddr li").length == 0) {
+          $.toast("请选择区域");
+          return;
+        }
+        if ($("input[name='switch']").is(":checked")) {
+          isOn = "1"
+        } else {
+          isOn = "0"
+        }
+        var services = [];
+        $("input[name='salarySkills']:checked").each(function () {
+          services.push($(this).val());
+        })
+        console.log(services);
+
+        var addressInfos = [];
+        
+        if($("input[name='selAddr']:checked").val()==0){
+            $(".showAddr li").each(function(){
+                var obj = {}
+                obj.province = $(this).attr("data-pcode");
+                obj.city = $(this).attr("data-ccode");
+                console.log(obj);
+                addressInfos.push(obj)
+              })
+        }else{
+          var obj = {}
+          obj.province = 0;
+          obj.city = 0;
+          addressInfos.push(obj)
+        }
+        
+        // for (var i = 0;i < $(".showAddr li").length;i++) {
+        //   var obj = {}
+        //   obj.province = $(this).attr("data-pcode");
+        //   obj.city = $(this).attr("data-ccode");
+        //   console.log(obj);
+        //   addressInfos.push(obj)
+        // }
+        $.ajax({
+          url: window.global_config.setting,
+          type: "post",
+          headers: {
+          'wx-openid': params.wx_openid,
+        },
+          dataType: "json",
+          data: JSON.stringify({
+            isOn: isOn,
+            services: services,
+            addressInfos: addressInfos
+          }),
+          contentType: "application/json;charset=UTF-8",
+          async: false,
+          success: function success(data) {
+            if (data.success) {
+              var dataJD = data.jsonData;
+              console.log(dataJD);
+              $.toast("保存成功");
+              setTimeout(function(){
+								window.location.reload();	
+							},2100);
+            } else {
+              checkAuth(data.code);
+              $.toast(data.msg);
+            }
+          }
+        });
+      });
+      var urlpath = "";
+      var imgurl = "http://" + window.location.host + "/img/logojiacer.jpg";
+      shareWechat.init_share_params = {
+        'onMenuShareTimeline.title': '家策微课堂，家庭技能服务在线课程',
+        'onMenuShareTimeline.imgUrl': imgurl,
+        'onMenuShareAppMessage.title': '家策微课堂，家庭技能服务在线课程',
+        'onMenuShareAppMessage.imgUrl': imgurl,
+        'onMenuShareAppMessage.desc': '技多不压身，工作更轻松'
+      };
+      shareWechat.sharePage(urlpath);
+  })
+
+  // 拉取省列表
+  function serviceProvice(){
+	  $.ajax({
+        url: window.global_config.getProvinces,
+        type: "get",
+        data: {},
+        dataType: "json",
+        async:false,
+        success: function success(data) {
+            if(data.success){
+                if(data.code == 0){
+                	var dataJD = data.jsonData;
+                	var html = "";
+                	$.each(dataJD, function(i,item) {
+                		html += "<li data-code='"+item.areaCode+"'>"+item.areaName+"</li>";
+                	});
+                	$("#selDistrict .provice ul").html(html);
+                	console.log(data.msg);
+                }else{
+                    console.log(data.msg);
+                }
+            }else{
+                console.log(data.msg);
+            }
+        }
+    });
+  }
+  // 拉取市列表
+  function serviceCity(pcode){
+	  $.ajax({
+        url: window.global_config.getCities+"?province="+pcode,
+        type: "get",
+        data: {},
+        dataType: "json",
+        async:false,
+        success: function success(data) {
+            if(data.success){
+                if(data.code == 0){
+                	var dataJD = data.jsonData;
+                	var html = "";
+                	$.each(dataJD, function(i,item) {
+                		html += "<li data-code='"+item.areaCode+"'>"+item.areaName+"</li>";
+                	});
+                	$("#selDistrict .city ul").html("<li data-code='0'>全部</li>"+html);
+                	console.log(data.msg);
+                }else{
+                    console.log(data.msg);
+                }
+            }else{
+                console.log(data.msg);
+            }
+        }
+    });
+  }
+  // 拉工种列表
+  function getServicesType(){
+	  $.ajax({
+        url: window.global_config.services,
+        type: "get",
+        data: {},
+        dataType: "json",
+        async:false,
+        success: function success(data) {
+            if(data.success){
+                if(data.code == 0){
+                	var dataJD = data.jsonData;
+                	var html = "";
+                	$.each(dataJD, function(i,item) {
+                    html += "<li data-code='"+item.code+"' class='skillBox'>"+item.value+""+
+                              "<input type='checkbox' name='salarySkills' class='skillInput' value='"+item.code+"'>"
+                            "</li>";
+                	});
+                	$(".service_item ul").html(html);
+                	console.log(data.msg);
+                }else{
+                    console.log(data.msg);
+                }
+            }else{
+                console.log(data.msg);
+            }
+        }
+    });
+  }
+</script>
+</body>
+
+</html>

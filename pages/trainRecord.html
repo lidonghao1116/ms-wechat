@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.mytoast.css">
+    <link rel="stylesheet" type="text/css" href="../css/trainRecord.css">
+    <title>家策微课堂</title>
+</head>
+
+<body>
+    <div class="page page-current">
+        <header>
+            <a class="goBack" href="mine.html"></a>
+            <h1>培训记录</h1>
+        </header>
+        <div class="record_box">
+            <!--  <div class="record">
+        <h3 class="certificate_tt"><i></i>高级育婴师<span class="baoming">已报名</span></h3>
+        <h4 class="">{零基础】家政上岗证</h4>
+        <div class="record_info">
+          <p><span>报名时间</span>2017年05月15日</p>
+          <p><span>学习周期</span>90 课时</p>
+          <p><span>考核形式</span>操作</p>
+          <p><span>培训学校</span>家策商学院</p>
+        </div>
+      </div>
+      <div class="record">
+        <h3 class="certificate_tt"><i></i>育婴师<span class="tuixue">已退学</span></h3>
+        <h4>上海劳动局双证班</h4>
+        <div class="record_info">
+          <p><span>报名时间</span>2017年05月15日</p>
+          <p><span>学习周期</span>130 课时</p>
+          <p><span>考核形式</span>操作</p>
+          <p><span>培训学校</span>家策商学院</p>
+        </div>
+      </div>-->
+        </div>
+    </div>
+    <!-- <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script> -->
+    <!-- <script src="/components/vendor/utils/config.js"></script> -->
+    <!-- <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script> -->
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <!-- <script src="/components/vendor/utils/map.js"></script> -->
+    <!-- <script src="/components/vendor/utils/popup.js"></script> -->
+    <script src="/js/jquery.myToast.js"></script>
+    <script src="/components/vendor/utils/mapping.js"></script>
+    <script src="/components/vendor/utils/common.js"></script>
+    <script src="/components/vendor/trainRecord/trainRecord.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/components/vendor/utils/share_wachet.js"></script>
+    <script type="text/javascript">
+        var urlpath = "";
+        var imgurl = "http://" + window.location.host + "/img/logojiacer.jpg";
+        shareWechat.init_share_params = {
+            'onMenuShareTimeline.title': '家策微课堂，家庭技能服务在线课程',
+            'onMenuShareTimeline.imgUrl': imgurl,
+            'onMenuShareAppMessage.title': '家策微课堂，家庭技能服务在线课程',
+            'onMenuShareAppMessage.imgUrl': imgurl,
+            'onMenuShareAppMessage.desc': '技多不压身，工作更轻松'
+        };
+        shareWechat.sharePage(urlpath);
+    </script>
+</body>
+
+</html>

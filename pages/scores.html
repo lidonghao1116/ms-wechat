@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>家策微课堂</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="page-group">
+        <div id="page-course" class="page page-current">
+            <header class="bar bar-nav">
+                <h1 class="title"></h1>
+            </header>
+            <div class="content native-scroll">
+                <div class="score">
+                    <div class="center">
+                        <div><img src="../img/complete_btn.png"></div>
+                        <div class="scores-title">恭喜你完成答题！</div>
+                        <div class="hx">成绩单</div>
+                    </div>
+                    <div class="scores-lists">
+                        <div class="row">
+                            <div class="col-40 right">答题科目</div>
+                            <div class="col-60 left n_coursename"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-40 right">答题时长</div>
+                            <div class="col-60 left n_useTime"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-40 right">成绩</div>
+                            <div class="col-60 left">
+                                <span class="n_score" style="color: #f0854b"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row scoresBtn">
+                        <div class="col-50">
+                            <a class="button button-fill" href="javascript:window.location.href='/pages/answerSheets.html'">查看答题卡</a>
+                        </div>
+                        <div class="col-50">
+                            <a class="button white_btn" href="javascript:window.location.href='/pages/home.html'">返回首页</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script src="/components/vendor/utils/config.js"></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+    <script src="/components/vendor/utils/map.js"></script>
+    <script src="/components/vendor/utils/mapping.js"></script>
+    <script src="/components/vendor/utils/common.js"></script>
+    <script src="/components/vendor/question/scores.js?9999"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/components/vendor/utils/share_wachet.js"></script>
+    <script type="text/javascript">
+        var urlpath = "";
+        var imgurl = "http://" + window.location.host + "/img/logojiacer.jpg";
+        shareWechat.init_share_params = {
+            'onMenuShareTimeline.title': '家策微课堂，家庭技能服务在线课程',
+            'onMenuShareTimeline.imgUrl': imgurl,
+            'onMenuShareAppMessage.title': '家策微课堂，家庭技能服务在线课程',
+            'onMenuShareAppMessage.imgUrl': imgurl,
+            'onMenuShareAppMessage.desc': '技多不压身，工作更轻松'
+        };
+        shareWechat.sharePage(urlpath);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../css/mine.css">
+    <link rel="stylesheet" href="/css/jquery.mytoast.css">
+    <title>家策微课堂</title>
+    <body>
+        <header>
+            <a class="goBack" href="myInformation.html"></a>
+            <h1>学员信息完善</h1>
+        </header>
+        <div class="info_banner">
+            <img src="../img/banner.png">
+        </div>
+        <div class="info_enter">
+            <h1>个人信息完善</h1>
+            <div class="info_list">
+                <label>真实姓名：</label>
+                <p><input type="text" name="username" value="" placeholder="请输入姓名"></p>
+            </div>
+            <div class="info_list" id="degree">
+                <label>学历：</label>
+                <p class="selCertificate"><input type="text" name="" value="" readonly="readonly" placeholder="请选择学历"></p>
+            </div>
+        </div>
+        <div class="savebtn">
+            <input type="button" name="" value="确定" id="confirm">
+        </div>
+
+        <div class="layer">
+            <div class="popup">
+                <h4>学历</h4>
+                <div class="education">
+                    <div data-id="01">小学</div>
+                    <div data-id="02">初中</div>
+                    <div data-id="03">高中</div>
+                    <div data-id="04">中专</div>
+                    <div data-id="05">大专</div>
+                    <div data-id="06">大学本科</div>
+                    <div data-id="07">硕士研究生</div>
+                    <div data-id="08">博士生</div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/jquery-3.1.1.min.js"></script>
+        <script src="../js/jquery.myToast.js"></script>
+        <script src="/js/jq.extend.js"></script>
+        <script src="../components/vendor/utils/map.js"></script>
+        <script src="../components/vendor/utils/mapping.js"></script>
+        <script src="../components/vendor/utils/common.js"></script>
+        <script src="../components/vendor/mine/myInfo.js"></script>
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../components/vendor/utils/share_wachet.js"></script>
+        <script type="text/javascript">
+            var urlpath = "";
+            var imgurl = "http://" + window.location.host + "/img/logojiacer.jpg";
+            shareWechat.init_share_params = {
+                'onMenuShareTimeline.title': '家策微课堂，家庭技能服务在线课程',
+                'onMenuShareTimeline.imgUrl': imgurl,
+                'onMenuShareAppMessage.title': '家策微课堂，家庭技能服务在线课程',
+                'onMenuShareAppMessage.imgUrl': imgurl,
+                'onMenuShareAppMessage.desc': '技多不压身，工作更轻松'
+            };
+            shareWechat.sharePage(urlpath);
+        </script>
+    </body>
+
+</html>
